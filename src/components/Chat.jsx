@@ -1,28 +1,25 @@
 import React from "react";
-import "../Styles/Home.css";
+// import "../Styles/Home.css";
+import Input from "./Input";
+
+import Cam from "../img/cam.png";
+import Add from "../img/add.png";
+import More from "../img/more.png";
+import Messages from "./Messages";
+
 const Chat = () => {
   return (
     <div className="chat">
       <div className="chatInfo">
         <span>Tahhh</span>
         <div className="chatIcons">
-          <img
-            src="https://static.vecteezy.com/system/resources/thumbnails/003/586/437/small/video-camera-icon-record-icon-illustration-free-vector.jpg"
-            alt="cam"
-            height="30px"
-          />
-          <img
-            src="https://static.thenounproject.com/png/4805070-200.png"
-            alt="add"
-            height="30px"
-          />
-          <img
-            src="https://cdn.icon-icons.com/icons2/1509/PNG/512/viewmore_104374.png"
-            alt="more"
-            height="30px"
-          />
+          <img src={Cam} alt="cam" />
+          <img src={Add} alt="add" />
+          <img src={More} alt="more" />
         </div>
-      </div>
+      </div>{" "}
+      <Messages />
+      <Input />
     </div>
   );
 };

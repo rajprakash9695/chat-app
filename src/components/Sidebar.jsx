@@ -1,5 +1,5 @@
 import React from "react";
-import "../Styles/Home.css";
+// import "../Styles/Home.css";
 import Navbar from "./Navbar";
 import Search from "./Search";
 import Chats from "./Chats";
