@@ -1,5 +1,4 @@
 import React from "react";
-// import "../Styles/Home.css";
 import Input from "./Input";
 
 import Cam from "../img/cam.png";

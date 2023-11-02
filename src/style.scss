@@ -23,7 +23,7 @@
 
   .formWrapper {
     background-color: white;
-    padding: 20px 60px;
+    padding: 20px 20px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -109,6 +109,11 @@
       flex: 1;
       background-color: #3e3c61;
       position: relative;
+
+      @include mobile {
+        overflow-x: scroll;
+        width: 30%;
+      }
 
       .navbar {
         display: flex;
