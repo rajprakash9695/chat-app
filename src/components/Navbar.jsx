@@ -10,9 +10,15 @@ function Navbar() {
     <div className="navbar">
       <span className="logo">Raj Chat</span>
       <div className="user">
-        <img src={currentUser.photoURL} alt="" />
-        <span>{currentUser.displayName}</span>
-        <button onClick={() => signOut(auth)}>Logout</button>
+        {currentUser ? ( // Check if currentUser exists
+          <>
+            <img src={currentUser.photoURL} alt="" />
+            <span>{currentUser.displayName}</span>
+            <button onClick={() => signOut(auth)}>Logout</button>
+          </>
+        ) : (
+          <span>Not logged in</span>
+        )}
       </div>
     </div>
   );

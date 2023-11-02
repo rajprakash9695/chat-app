@@ -4,33 +4,41 @@ import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase";
 
 function Chats() {
-  const [chats, setChats] = useState([]);
+  const [chats, setChats] = useState({});
 
   const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
-    const getChats = () => {
-      const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
-        setChats(doc.data());
-      });
+    if (currentUser && currentUser.uid) {
+      // Add null check for currentUser and currentUser.uid
+      const getChats = () => {
+        const unsub = onSnapshot(
+          doc(db, "userChats", currentUser.uid),
+          (doc) => {
+            setChats(doc.data() || {}); // Use an empty object as a fallback
+          }
+        );
 
-      return () => {
-        unsub();
+        return () => {
+          unsub();
+        };
       };
-    };
 
-    currentUser.uid && getChats();
-  }, [currentUser.uid]);
+      getChats();
+    }
+  }, [currentUser]);
 
-  // console.log(chats);
   return (
     <div className="chats">
-      {Object.entries(chats)?.map((chat) => (
+      {Object.entries(chats).map((chat) => (
         <div className="userChat" key={chat[0]}>
-          <img src={chat[1].userInfo.photoURL} alt="" />
+          <img src={chat[1].userInfo.photoURL || ""} alt="" />{" "}
+          {/* Add a null check for photoURL */}
           <div className="userChatInfo">
-            <span>{chat[1].userInfo.displayName}</span>
-            <p>{chat[1].userInfo.lastMessage?.text}</p>
+            <span>{chat[1].userInfo.displayName || "Unknown User"}</span>{" "}
+            {/* Add a null check and a fallback for displayName */}
+            <p>{chat[1].userInfo.lastMessage?.text || ""}</p>{" "}
+            {/* Add a null check for lastMessage and a fallback for text */}
           </div>
         </div>
       ))}
