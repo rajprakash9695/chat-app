@@ -1,9 +1,9 @@
 import React from "react";
-// import "../Styles/Home.css";
 import Sidebar from "../components/Sidebar";
 import Chat from "../components/Chat";
 
 function Home() {
+  console.log("Home");
   return (
     <div className="home">
       <div className="container">
