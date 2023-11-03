@@ -42,6 +42,8 @@ const Input = () => {
                 img: downloadURL,
               }),
             });
+            console.log("data:", data);
+            console.log("chatId:", data?.chatId);
           });
         }
       );
@@ -54,6 +56,8 @@ const Input = () => {
           date: Timestamp.now(),
         }),
       });
+      console.log("data:", data);
+      console.log("chatId:", data.chatId);
     }
 
     await updateDoc(doc(db, "userChats", currentUser.uid), {
