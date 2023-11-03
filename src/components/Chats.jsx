@@ -10,7 +10,7 @@ function Chats() {
   const { currentUser } = useContext(AuthContext);
   const { dispatch } = useContext(ChatContext);
 
-  console.log("log:chats", dispatch);
+  // console.log("log:chats", dispatch);
 
   useEffect(() => {
     const getChats = () => {
