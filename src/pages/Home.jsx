@@ -2,8 +2,7 @@ import React from "react";
 import Sidebar from "../components/Sidebar";
 import Chat from "../components/Chat";
 
-function Home() {
-  console.log("Home");
+const Home = () => {
   return (
     <div className="home">
       <div className="container">
@@ -12,6 +11,6 @@ function Home() {
       </div>
     </div>
   );
-}
+};
 
 export default Home;
